@@ -1,0 +1,134 @@
+
+:root{
+    /* Primary*/
+    
+    --veryDarkBlue:  hsl(233, 47%, 7%); /*main background*/
+    --darkDesaturatedBlue: hsl(244, 38%, 16%);/*card background*/
+    --softViolet: hsl(277, 64%, 61%); /*accent*/
+
+    /* Neutral*/
+    --white : hsl(0, 0%, 100%); /* main heading, stats*/
+    --slightlyTransparent: hsla(0, 0%, 100%, 0.75);/*main paraghraph*/
+    --slightlyTranspartentWihte: hsla(0, 0%, 100%, 0.6);/*stat headings*/
+    }
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    background-color: var(--veryDarkBlue);
+    font-size: 15px;
+    color: var(--white);
+    font-family: 'Inter',sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.head{
+    grid-area: header;
+    align-self: end;
+}
+
+.head span{
+    color: var(--softViolet);
+}
+
+.p{
+    grid-area: paragraph;
+    color: var(--slightlyTransparent);
+
+}
+
+.image{
+    
+    width: 100%;
+    height: 100%;
+    grid-area: image;
+
+
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+    
+    
+}
+
+
+.info{
+    grid-area:data;
+    align-self: start;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info span{
+    color: var(--slightlyTranspartentWihte);
+    text-transform:uppercase;
+    font-family: 'Lexend Deca';
+    font-size: .8rem;
+}
+
+.content{
+    position: absolute;
+    border-radius: 10px;
+    margin: 20vh auto;
+    background-color: var(--darkDesaturatedBlue);
+    width: 70vw;
+    height: 60vh;
+    display: grid;
+    grid: 1fr 1fr 1fr/ 5% 40% 5% 50%;
+    grid-template-areas: 
+    " . header . image"
+    ". paragraph .  image"
+    ". data .  image" ;
+    justify-items: center;
+    align-items: center;
+}
+
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+@media (max-width:440px)
+ {
+    .content{
+        text-align: center;
+        width: 85vw;
+        height: 120vh;
+        margin: 10vh auto;
+        grid: repeat(5, 1fr)/5% 90% 5%;
+        grid-template-areas: 
+        "image image image"
+        ". header ."
+        ". paragraph ."
+        ". data ."
+        ". data .";
+    }
+    .image img{
+        border-radius: 10px 10px 0 0;
+    }
+
+    .info{
+        height: auto;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+       
+    }
+
+}
